@@ -1,6 +1,7 @@
 package com.example.biometricauthenticationrest.REST.SERVICE;
 
 import com.example.biometricauthenticationrest.REST.DAO.MacRepository;
+import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,7 +45,7 @@ public class MacService {
 
     private String authenticate(String mac) {
         if(repository.matchingMacInDb(mac)) {
-            return "Successfully authenticated. Password: "; // generate random password here
+            return "Successfully authenticated. Password: " + RandomString.make(); // generate random password here
         }
         else {
             return "No match found";
