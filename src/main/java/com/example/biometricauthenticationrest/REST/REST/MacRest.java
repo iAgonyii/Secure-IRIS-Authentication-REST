@@ -21,9 +21,14 @@ public class MacRest {
         return new ResponseEntity(service.authenticateMac(mac), HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "http://localhost/")
+    @CrossOrigin(origins = "192.169.178.80")
     @PostMapping("/add")
     public ResponseEntity addMac(@RequestBody String mac) {
         return new ResponseEntity(service.addNewMac(mac), HttpStatus.OK);
+    }
+
+    @GetMapping("/test")
+    public ResponseEntity test(){
+        return new ResponseEntity("OK", HttpStatus.OK);
     }
 }
